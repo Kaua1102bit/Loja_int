@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras | Loja de Informática</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            background-color: #232327;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        header nav ul li a i {
+            margin-right: 8px;
+        }
+
+        .cart {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #232327;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .cart h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c1c1c;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .cart-item img {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+
+        .cart-item-details h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .cart-item-details p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity input {
+            width: 50px;
+            margin-left: 10px;
+            padding: 5px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .remove-item {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .remove-item:hover {
+            background-color: darkred;
+        }
+
+        .cart-summary {
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .summary-item span {
+            font-size: 16px;
+        }
+
+        .summary-item.total span {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background-color: #232327;
+            color: white;
+            padding: 15px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #1c1c1c;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #232327;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastre-se.html">Cadastre-se</a></li>
+                <li><a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <h2>Seu Carrinho</h2>
+
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="/PS5.webp" alt="PS5 slim digital">
+                <div class="cart-item-details">
+                    <h3>PS5 slim digital,SSD 1TB, com controle sem fio</h3>
+                    <p>R$ 3.299,99</p>
+                    <div class="quantity">
+                        <label for="quantity1">Quantidade:</label>
+                        <input type="number" id="quantity1" value="1" min="1">
+                    </div>
+                    <button class="remove-item">Remover</button>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="/MONITOR.webp" alt="Placa Mãe ASRock B450M">
+                <div class="cart-item-details">
+                    <h3>Placa Mãe ASRock B450M Steel Legend</h3>
+                    <p>R$ 769,99</p>
+                    <div class="quantity">
+                        <label for="quantity2">Quantidade:</label>
+                        <input type="number" id="quantity2" value="2" min="1">
+                    </div>
+                    <button class="remove-item">Remover</button>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="/MACBOOK.webp" alt="Macbook Air Apple 13">
+                <div class="cart-item-details">
+                    <h3>MacBook Air Apple 13", M1, CPU 8 Núcleos, GPU 7 Núcleos, 8GB RAM, SSD 256GB, Cinza Espacial</h3>
+                    <p>R$ 13.299,99</p>
+                    <div class="quantity">
+                        <label for="quantity3">Quantidade:</label>
+                        <input type="number" id="quantity3" value="1" min="1">
+                    </div>
+                    <button class="remove-item">Remover</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Resumo do Carrinho</h3>
+            <div class="summary-item">
+                <span>Total de Produtos:</span>
+                <span>R$ 17.369,97</span>
+            </div>
+            <div class="summary-item">
+                <span>Desconto (15% no PIX):</span>
+                <span>- R$ 2.305,50</span>
+            </div>
+            <div class="summary-item total">
+                <span>Total Final:</span>
+                <span>R$ 15.064,47</span>
+            </div>
+
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ZAP INFORMÁTICA</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
